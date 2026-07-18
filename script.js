@@ -504,6 +504,25 @@ document.addEventListener("DOMContentLoaded", () => {
             closeModal();
         }
     });
+
+    // ==========================================================================
+    // 9. PDF Print Event Handlers
+    // ==========================================================================
+    window.addEventListener("beforeprint", () => {
+        // 1. Switch wireframe studio to Final UI of Dashboard
+        const finalUiBtn = document.querySelector('.prog-tab-btn[data-fidelity="final"]');
+        const dashScreenBtn = document.querySelector('.studio-screen-btn[data-screen-id="dash"]');
+        if (finalUiBtn && dashScreenBtn) {
+            dashScreenBtn.click();
+            finalUiBtn.click();
+        }
+
+        // 2. Switch mobile UI simulator to Dashboard screen
+        const mobDashBtn = document.querySelector('.phone-nav-item[data-phone-screen="dashboard"]');
+        if (mobDashBtn) {
+            mobDashBtn.click();
+        }
+    });
 });
 
 
